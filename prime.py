@@ -1,9 +1,9 @@
-lower=int(input('enter a lower interval'))
-upper=int(input('enter a upper interval'))
-for num in range(lower,upper+1):
-    if(num>1):
-        for i in range(2,num):
-            if((num%i)==0):
-                break
-            else:
-                print(num)
+n=int(input("Enter a number "))
+k=0
+for i in range(2,n//2+1):
+    if(n%i==0):
+        k=k+1
+if(k<=0):
+    print("Number is prime")
+else:
+    print("Number is not a prime")
