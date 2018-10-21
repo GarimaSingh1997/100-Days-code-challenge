@@ -6,6 +6,6 @@ else:
     min1=n
 while(1):
     if(min1%m==0 and min1%n==0):
-        print("LCM is: ",min1)
+        print("LCM is:",min1)
         break
     min1=min1+1
