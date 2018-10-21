@@ -1,5 +1,5 @@
 m=int(input("Enter a number: "))
-n=int(input("Enter second number "))
+n=int(input("Enter second number: "))
 if(m>n):
     min1=m
 else:
