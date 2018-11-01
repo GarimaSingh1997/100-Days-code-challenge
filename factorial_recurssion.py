@@ -3,7 +3,6 @@ def fact(n):
         return 1
     else:
         return n*fact(n-1)
-
 n=int(input("enter the number:"))
 result=fact(n)
 print('factorial of',n,'is',result)
