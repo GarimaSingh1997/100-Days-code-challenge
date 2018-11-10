@@ -9,3 +9,4 @@ while(1):
         print("LCM is:",min1)
         break
     min1=min1+1
+    
