@@ -22,7 +22,7 @@ class FrameApp(Frame):
                          width=20)
         self.b2.grid(row=2, column=0)
 
-        self.b3 = Button(self, text="toggle", command=self.toggle, width=20)
+        self.b3 = Button(self, text="pause", command=self.toggle, width=20)
         self.b3.grid(row=3, column=0)
 
         self.b4 = Button(self, text="next", command=self.next_song, width=20)
@@ -42,6 +42,8 @@ class FrameApp(Frame):
         self.SONG_END = pygame.USEREVENT + 1
 
         # TODO: Make progressbar, delete songs from playlist, amplify volume
+        
+        
 
     def add_to_list(self):
         """
@@ -61,6 +63,8 @@ class FrameApp(Frame):
             song_data = (str(key + 1) + ' : ' + song['title'][0] + ' - '
                          + song['artist'][0])
             self.output.insert(END, song_data + '\n')
+            
+            
 
     def song_data(self):
         """
@@ -71,6 +75,8 @@ class FrameApp(Frame):
         song_data = "Now playing: Nr:" + str(self.actual_song + 1) + " " + \
                     str(song['title']) + " - " + str(song['artist'])
         return song_data
+        
+        
 
     def play_music(self):
         """
@@ -83,6 +89,8 @@ class FrameApp(Frame):
         pygame.mixer.music.set_endevent(self.SONG_END)
         self.paused = False
         self.label1['text'] = self.song_data()
+        
+        
 
     def check_music(self):
         """
@@ -93,6 +101,8 @@ class FrameApp(Frame):
         for event in pygame.event.get():
             if event.type == self.SONG_END:
                 self.next_song()
+
+
 
     def toggle(self):
         """
@@ -106,6 +116,8 @@ class FrameApp(Frame):
             pygame.mixer.music.pause()
             self.paused = True
 
+
+
     def get_next_song(self):
         """
         Gets next song number on playlist
@@ -115,6 +127,8 @@ class FrameApp(Frame):
             return self.actual_song + 1
         else:
             return 0
+            
+            
 
     def next_song(self):
         """
@@ -123,6 +137,8 @@ class FrameApp(Frame):
         """
         self.actual_song = self.get_next_song()
         self.play_music()
+        
+        
 
     def get_previous_song(self):
         """
@@ -133,6 +149,8 @@ class FrameApp(Frame):
             return self.actual_song - 1
         else:
             return len(self.playlist) - 1
+            
+            
 
     def previous_song(self):
         """
@@ -141,6 +159,8 @@ class FrameApp(Frame):
         """
         self.actual_song = self.get_previous_song()
         self.play_music()
+        
+        
 
 
 root = Tk()
